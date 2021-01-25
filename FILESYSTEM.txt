@@ -1,0 +1,70 @@
+#FILESYSTEM
+{ "/" :[{ 'bin': [
+                'echo',
+               'mkdir',
+               'ls',
+               'ip',
+               'kill'
+              ]
+     },
+     {'lib': [ { 'init': ['fstab',
+                          'vars.sh',
+                          'upstart-job'
+                         ]
+                },
+                {'udev' : ['accelerometer',
+                           'ata_id',
+                           'cdrom_id'
+                           ]
+                },
+                {'systemd': [  { 'system' : ['sudo.service',
+                                             'rsync.service',
+                                             'anacron.service'
+                                            ]
+                               },
+                               { 'system-sleep':['notify-upower.sh'
+                                                ]
+                               },
+                               'systemd-logind',
+                               'systemd-udevd',
+                               'systemd-localed'
+                            ]
+                }
+              ]
+        },
+       {'home' : [ { 'documents' :[ {'reports' : []},
+                                     'ToDo.txt',
+                                     'book.pdf',
+                                     'results.pdf'
+                                  ]
+
+                   },
+                   {'music' : [ {'album1': ['song1.mp3',
+                                            'song2.mp3'
+                                            ]
+                                },
+                               {'album2' : ['song1,mp3',
+                                            'song2.mp3'
+                                           ]
+                               }
+                             ]
+                   },
+                   {'pictures' : [ {'holiday' : ['photo1.jpg',
+                                                 'photo2.jpg',
+                                                 'photo3.jpg',
+                                                 'photo4.jpg'
+                                                ]
+                                   },
+                                   {'trip' :  ['photo1.jpg',
+                                               'photo2.jpg',
+                                               'photo3.jpg',
+                                               'photo4.jpg'
+                                              ]
+                                   }
+                                ]
+                  }
+                ]
+      }
+    ]
+
+}

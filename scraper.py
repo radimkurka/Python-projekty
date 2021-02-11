@@ -136,21 +136,23 @@ def main():
     final_output.insert(0, header)
     return final_output
 
-final_output = main()
-try:
-    choice = input("""
-    Would you like to write data to csv? Please type 1.
-    Or would you like to print results to terminal? Please type 2.
-    """)
-    if choice == "1":
-        filename = input("Please choose filename ending with .csv ")
-        if filename[-4:] != ".csv":
-            filename += ".csv"
-        write_to_csv(final_output, filename)
-    elif choice == "2":
-        print(final_output)
-except:
-    print(sys.exc_info()[:1])
+if __name__ == "__main__":
+    final_output = main()
+    try:
+        choice = input("""
+        Would you like to write data to csv? Please type 1.
+        Or would you like to print results to terminal? Please type 2.
+        """)
+        if choice == "1":
+            filename = input("Please choose filename ending with .csv ")
+            if filename[-4:] != ".csv":
+                filename += ".csv"
+            write_to_csv(final_output, filename)
+        elif choice == "2":
+            print(final_output)
+    except:
+        print(sys.exc_info()[:1])
+
 
 
 
